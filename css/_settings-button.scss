@@ -8,19 +8,19 @@
             display: flex;
             background-color: #fff;
             border-radius: 50%;
-            border: 1px solid #d1dbe8;
+            // border: 1px solid #d1dbe8;
             justify-content: center;
             width: 38px;
             height: 38px;
 
             &:hover {
                 background-color: #daebfa;
-                border: 1px solid #daebfa;
+                // border: 1px solid #daebfa;
             }
 
             &.toggled {
                 background: #2a3a4b;
-                border: 1px solid #5e6d7a;
+                // border: 1px solid #5e6d7a;
 
                 svg {
                     fill: #fff;

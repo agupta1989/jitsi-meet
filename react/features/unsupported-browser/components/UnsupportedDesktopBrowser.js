@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { isBrowsersOptimal } from '../../base/environment';
 import { translate } from '../../base/i18n';
 
-import { CHROME, FIREFOX } from './browserLinks';
+import { CHROME, EDGE, FIREFOX } from './browserLinks';
 
 /**
  * The namespace of the CSS styles of UnsupportedDesktopBrowser.
@@ -50,13 +50,28 @@ class UnsupportedDesktopBrowser extends Component<Props> {
                         className = { `${_SNS}__link` }
                         href = { CHROME } >Chrome</a>&nbsp;
                     {
-                        this._showFirefox() && <>or <a
+                        this._showFirefox() && <>, <a
                             className = { `${_SNS}__link` }
                             href = { FIREFOX }>Firefox</a></>
+                    }
+                    {
+                        this._showEdge() && <> or <a
+                            className = { `${_SNS}__link` }
+                            href = { EDGE }>Edge</a></>
                     }
                 </p>
             </div>
         );
+    }
+
+    /**
+     * Returns whether or not a link to download Edge is displayed.
+     *
+     * @private
+     * @returns {boolean}
+     */
+    _showEdge() {
+        return isBrowsersOptimal('edge');
     }
 
     /**

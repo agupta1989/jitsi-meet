@@ -963,6 +963,7 @@ class Toolbox extends Component<Props, State> {
             <ToolbarButton
                 accessibilityLabel
                     = { t('toolbar.accessibilityLabel.shareYourScreen') }
+                className = 'share-screen'
                 disabled = { !_desktopSharingEnabled }
                 icon = { IconShareDesktop }
                 onClick = { this._onToolbarToggleScreenshare }
@@ -1326,10 +1327,10 @@ class Toolbox extends Component<Props, State> {
                     }
                 </div>
                 <div className = 'button-group-center'>
+                    { this._renderVideoButton() }
                     { this._renderAudioButton() }
                     <HangupButton
                         visible = { this._shouldShowButton('hangup') } />
-                    { this._renderVideoButton() }
                 </div>
                 <div className = 'button-group-right'>
                     { buttonsRight.indexOf('localrecording') !== -1

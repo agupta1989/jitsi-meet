@@ -8,11 +8,12 @@ import { isSupportedMobileBrowser } from '../../base/environment';
 import { translate } from '../../base/i18n';
 import { Platform } from '../../base/react';
 import { connect } from '../../base/redux';
-import { DialInSummary } from '../../invite';
 import { openWebApp } from '../actions';
 import { _TNS } from '../constants';
-import { generateDeepLinkingURL } from '../functions';
-import { renderPromotionalFooter } from '../renderPromotionalFooter';
+
+// import { renderPromotionalFooter } from '../renderPromotionalFooter';
+// import { DialInSummary } from '../../invite';
+// import { generateDeepLinkingURL } from '../functions';
 
 declare var interfaceConfig: Object;
 
@@ -80,7 +81,12 @@ class DeepLinkingMobilePage extends Component<Props> {
     componentDidMount() {
         sendAnalytics(
             createDeepLinkingPageEvent(
-                'displayed', 'DeepLinkingMobile', { isMobileBrowser: true }));
+                'displayed', 'DeepLinkingMobile', { isMobileBrowser: true }
+            )
+        );
+        if (isSupportedMobileBrowser()) {
+            this.props.dispatch(openWebApp());
+        }
     }
 
     /**
@@ -120,7 +126,7 @@ class DeepLinkingMobilePage extends Component<Props> {
                             ? null
                             : <img
                                 className = 'logo'
-                                src = 'images/logo-deep-linking.png' />
+                                src = { interfaceConfig.DEFAULT_LOGO_URL } />
                     }
                 </div>
                 <div className = { `${_SNS}__body` }>
@@ -131,13 +137,13 @@ class DeepLinkingMobilePage extends Component<Props> {
                                 src = 'images/deep-linking-image.png' />
                             : null
                     }
-                    <p className = { `${_SNS}__text` }>
+                    {/* <p className = { `${_SNS}__text` }>
                         { t(`${_TNS}.appNotInstalled`, { app: NATIVE_APP_NAME }) }
-                    </p>
-                    <p className = { `${_SNS}__text` }>
+                    </p> */}
+                    {/* <p className = { `${_SNS}__text` }>
                         { t(`${_TNS}.ifHaveApp`) }
-                    </p>
-                    <a
+                    </p> */}
+                    {/* <a
                         { ...onOpenLinkProperties }
                         className = { `${_SNS}__href` }
                         href = { generateDeepLinkingURL() }
@@ -146,11 +152,11 @@ class DeepLinkingMobilePage extends Component<Props> {
                         <button className = { `${_SNS}__button ${_SNS}__button_primary` }>
                             { t(`${_TNS}.joinInApp`) }
                         </button>
-                    </a>
-                    <p className = { `${_SNS}__text` }>
+                    </a> */}
+                    {/* <p className = { `${_SNS}__text` }>
                         { t(`${_TNS}.ifDoNotHaveApp`) }
-                    </p>
-                    <a
+                    </p> */}
+                    {/* <a
                         { ...onOpenLinkProperties }
                         href = { this._generateDownloadURL() }
                         onClick = { this._onDownloadApp }
@@ -158,7 +164,7 @@ class DeepLinkingMobilePage extends Component<Props> {
                         <button className = { downloadButtonClassName }>
                             { t(`${_TNS}.downloadApp`) }
                         </button>
-                    </a>
+                    </a> */}
                     {
                         isSupportedMobileBrowser()
                             && <a
@@ -169,11 +175,11 @@ class DeepLinkingMobilePage extends Component<Props> {
                                 </button>
                             </a>
                     }
-                    { renderPromotionalFooter() }
+                    {/* { renderPromotionalFooter() }
                     <DialInSummary
                         className = 'deep-linking-dial-in'
                         clickableNumbers = { true }
-                        room = { _room } />
+                        room = { _room } /> */}
                 </div>
             </div>
         );

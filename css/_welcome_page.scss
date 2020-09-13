@@ -4,7 +4,8 @@ body.welcome-page {
 }
 
 .welcome {
-    background-image: $welcomePageBackground;
+    // background-image: $welcomePageBackground;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
     display: flex;
     flex-direction: column;
     font-family: $welcomePageFontFamily;
@@ -37,7 +38,8 @@ body.welcome-page {
         }
 
         .header-text-title {
-            color: $welcomePageTitleColor;
+            // color: $welcomePageTitleColor;
+            color: #022a73;
             font-size: $welcomePageHeaderTextTitleFontSize;
             font-weight: $welcomePageHeaderTextTitleFontWeight;
             line-height: $welcomePageHeaderTextTitleLineHeight;
@@ -45,9 +47,15 @@ body.welcome-page {
             opacity: $welcomePageHeaderTextTitleOpacity;
         }
 
+        .header-text-subtitle {
+            color: #f8992a;
+            margin: 0 auto;
+        }
+
         .header-text-description {
             display: $welcomePageHeaderTextDescriptionDisplay;
-            color: $welcomePageDescriptionColor;
+            // color: $welcomePageDescriptionColor;
+            color: #022a73;
             font-size: $welcomePageHeaderTextDescriptionFontSize;
             font-weight: $welcomePageHeaderTextDescriptionFontWeight;
             line-height: $welcomePageHeaderTextDescriptionLineHeight;
@@ -64,6 +72,8 @@ body.welcome-page {
             background-color: #fff;
             padding: $welcomePageEnterRoomPadding;
             border-radius: $welcomePageEnterRoomBorderRadius;
+            border-radius: 10px;
+            border: 2px solid;
 
             .enter-room-input-container {
                 width: 100%;

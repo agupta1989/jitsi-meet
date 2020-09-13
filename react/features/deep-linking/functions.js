@@ -1,13 +1,15 @@
 /* global interfaceConfig */
 
+import { isSupportedMobileBrowser } from '../base/environment';
 import { isMobileBrowser } from '../base/environment/utils';
 import { Platform } from '../base/react';
 import { URI_PROTOCOL_PATTERN } from '../base/util';
+import { UnsupportedDesktopBrowser } from '../unsupported-browser';
 
 import {
     DeepLinkingDesktopPage,
-    DeepLinkingMobilePage,
-    NoMobileApp
+    DeepLinkingMobilePage
+    // NoMobileApp,
 } from './components';
 import { _openDesktopApp } from './openDesktopApp';
 
@@ -58,13 +60,21 @@ export function getDeepLinkingPage(state) {
     }
 
     if (isMobileBrowser()) { // mobile
-        const mobileAppPromo
-            = typeof interfaceConfig === 'object'
-                && interfaceConfig.MOBILE_APP_PROMO;
+        // agpt commented for now, uncomment when mobile app is launched
+        // const mobileAppPromo
+        //     = typeof interfaceConfig === 'object'
+        //         && interfaceConfig.MOBILE_APP_PROMO;
 
+        // return Promise.resolve(
+        //     typeof mobileAppPromo === 'undefined' || Boolean(mobileAppPromo)
+        //         ? DeepLinkingMobilePage : NoMobileApp);
+
+        // agpt remove or modify this when app available
         return Promise.resolve(
-            typeof mobileAppPromo === 'undefined' || Boolean(mobileAppPromo)
-                ? DeepLinkingMobilePage : NoMobileApp);
+            isSupportedMobileBrowser()
+                ? DeepLinkingMobilePage
+                : UnsupportedDesktopBrowser
+        );
     }
 
     return _openDesktopApp(state).then(

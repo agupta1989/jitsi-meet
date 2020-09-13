@@ -1,3 +1,4 @@
+build.zip
 *.swp
 .*.tmp
 deploy-local.sh

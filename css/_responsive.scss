@@ -7,20 +7,21 @@
     .new-toolbox {
         .toolbox-content {
             .button-group-center, .button-group-left, .button-group-right {
+                width: 23%;
                 .toolbox-button {
                     .toolbox-icon {
-                        width: 28px;
-                        height: 28px;
+                        width: 50px;
+                        height: 50px;
                         svg {
-                            width: 18px;
-                            height: 18px;
+                            width: 27px;
+                            height: 27px;
                         }
                     }
 
                     &:nth-child(2) {
                         .toolbox-icon {
-                            width: 30px;
-                            height: 30px;
+                            width: 50px;
+                            height: 50px;
                         }
                     }
                 }
@@ -41,23 +42,24 @@
     .new-toolbox {
         .toolbox-content {
             .button-group-center, .button-group-left, .button-group-right {
+                width: 23%;
                 .settings-button-small-icon {
                     display: none;
                 }
                 .toolbox-button {
                     .toolbox-icon {
-                        width: 18px;
-                        height: 18px;
+                        width: 50px;
+                        height: 50px;
                         svg {
-                            width: 12px;
-                            height: 12px;
+                            width: 27px;
+                            height: 27px;
                         }
                     }
 
                     &:nth-child(2) {
                         .toolbox-icon {
-                            width: 20px;
-                            height: 20px;
+                            width: 50px;
+                            height: 50px;
                         }
                     }
                 }
